@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reality Revolution. The Annual Offer</title>
+<style>
+  :root{
+    --bg:#0A0616; --bg2:#120B26; --panel:#170F2E; --panel2:#1E1440;
+    --line:#2E2150; --line2:#3D2D68;
+    --text:#F4F1FF; --muted:#A79FC4; --dim:#7C7399;
+    --violet:#A855F7; --violet2:#7C3AED; --cyan:#22D3EE;
+    --green:#34D399; --amber:#FBBF24; --rose:#FB7185;
+    --data:#0AA3D0;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(900px 500px at 15% -10%, rgba(168,85,247,.30), transparent 60%),
+      radial-gradient(700px 460px at 88% 8%, rgba(34,211,238,.16), transparent 62%),
+      linear-gradient(180deg,#0A0616 0%,#150C2C 60%,#0A0616 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero::after{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(1.4px 1.4px at 20% 30%, rgba(255,255,255,.55), transparent),
+      radial-gradient(1.2px 1.2px at 70% 18%, rgba(255,255,255,.42), transparent),
+      radial-gradient(1.6px 1.6px at 45% 68%, rgba(255,255,255,.30), transparent),
+      radial-gradient(1.1px 1.1px at 88% 55%, rgba(255,255,255,.40), transparent),
+      radial-gradient(1.3px 1.3px at 12% 78%, rgba(255,255,255,.28), transparent),
+      radial-gradient(1px 1px at 60% 88%, rgba(255,255,255,.35), transparent);
+  }
+  .heroInner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 250px;gap:52px;align-items:center;padding:74px 0 66px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:11px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;
+    color:#DDD0FF;background:rgba(168,85,247,.16);border:1px solid rgba(168,85,247,.42);
+    padding:7px 14px;border-radius:999px;margin-bottom:22px;
+  }
+  .eyebrow b{color:var(--cyan);font-weight:700}
+  h1{
+    font-size:clamp(36px,5.2vw,58px);line-height:1.05;margin:0 0 20px;
+    font-weight:800;letter-spacing:-1.6px;
+    background:linear-gradient(100deg,#FFFFFF 8%,#D8C4FF 52%,#8FE9F7 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{font-size:17.5px;color:#CFC7E8;max-width:660px;margin:0 0 26px}
+  .heroStats{display:flex;flex-wrap:wrap;gap:11px}
+  .hstat{background:rgba(255,255,255,.045);border:1px solid var(--line2);border-radius:11px;padding:11px 16px;min-width:112px}
+  .hstat b{display:block;font-size:23px;font-weight:800;letter-spacing:-.6px;line-height:1.2}
+  .hstat span{font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--dim);font-weight:600}
+  .coverBox{position:relative}
+  .coverBox img{
+    width:100%;border-radius:12px;display:block;
+    box-shadow:0 26px 70px rgba(0,0,0,.65), 0 0 0 1px rgba(168,85,247,.30), 0 0 60px rgba(124,58,237,.28);
+  }
+  .coverTag{
+    position:absolute;bottom:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;
+    background:linear-gradient(135deg,var(--violet2),var(--violet));
+    font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+    padding:6px 15px;border-radius:999px;box-shadow:0 8px 22px rgba(124,58,237,.5);
+  }
+
+  nav{position:sticky;top:0;z-index:60;background:rgba(10,6,22,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .navInner{display:flex;gap:6px;overflow-x:auto;padding:0;scrollbar-width:none}
+  .navInner::-webkit-scrollbar{display:none}
+  nav a{
+    color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;
+    padding:15px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:.15s;
+  }
+  nav a:hover{color:var(--text);border-bottom-color:var(--violet)}
+
+  section{padding:64px 0 8px;scroll-margin-top:56px}
+  .secHead{margin-bottom:30px}
+  .secNum{font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:var(--violet);font-weight:800;display:block;margin-bottom:9px}
+  h2{font-size:31px;font-weight:800;letter-spacing:-.9px;margin:0 0 11px}
+  .secSub{color:var(--muted);max-width:790px;margin:0;font-size:15.5px}
+
+  p.copy{font-size:15.5px;color:#CFC7E8;max-width:830px}
+  p.copy b{color:#fff}
+
+  .ecoNote{
+    background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(34,211,238,.07));
+    border:1px solid var(--line2);border-left:3px solid var(--violet);
+    border-radius:var(--r);padding:20px 24px;margin:26px 0 30px;font-size:15px;color:#DCD5F2;
+  }
+  .ecoNote b{color:#fff}
+
+  .tableWrap{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;overflow-x:auto;margin:22px 0}
+  table{width:100%;border-collapse:collapse;min-width:640px}
+  th{background:var(--panel2);text-align:left;padding:13px 16px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);font-weight:800;border-bottom:1px solid var(--line)}
+  td{padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  td.num{font-variant-numeric:tabular-nums;font-weight:650}
+  td.lab{color:var(--muted);font-weight:600}
+  .bad{color:#FFA8B4}.ok{color:#A8EFD5}.warn{color:#FBE3A4}
+  tr.hi td{background:var(--panel2)}
+
+  .spine{position:relative;margin:26px 0 30px}
+  .step{position:relative;display:grid;grid-template-columns:34px 1fr;gap:16px;padding:0 0 18px}
+  .step:last-child{padding-bottom:0}
+  .step::before{content:'';position:absolute;left:16.5px;top:30px;bottom:-4px;width:1px;background:var(--line2)}
+  .step:last-child::before{display:none}
+  .stepN{
+    width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:var(--panel2);border:1px solid var(--line2);color:var(--violet);
+    font-size:13px;font-weight:800;position:relative;z-index:2;
+  }
+  .step:last-child .stepN{background:linear-gradient(135deg,var(--violet2),var(--violet));border-color:transparent;color:#fff}
+  .stepQ{font-size:15.5px;font-weight:700;margin:5px 0 5px;color:var(--text)}
+  .stepA{font-size:14.5px;color:#CFC7E8;margin:0}
+  .stepA b{color:#fff}
+
+  .keyline{
+    margin:22px 0 8px;padding:17px 22px;border-radius:11px;
+    background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(34,211,238,.09));
+    border:1px solid rgba(168,85,247,.5);border-left:4px solid var(--violet);
+    font-size:16.5px;font-weight:650;color:#fff;line-height:1.5;
+  }
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:11px;margin:24px 0 26px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 17px;position:relative;overflow:hidden}
+  .kpi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--k,var(--line2))}
+  .kpi b{display:block;font-size:25px;font-weight:800;letter-spacing:-.9px;line-height:1.15;font-variant-numeric:tabular-nums}
+  .kpi span{display:block;font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--dim);font-weight:700;margin-top:3px}
+  .kpi em{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:7px}
+
+  .chartCard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 18px;margin:24px 0}
+  .chartCard h4{margin:0 0 3px;font-size:15.5px;font-weight:700}
+  .chartCard .csub{margin:0 0 16px;font-size:12.5px;color:var(--muted)}
+  .chartCard svg{display:block;width:100%;height:auto;overflow:visible}
+
+  .svgWrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;overflow-x:auto;margin:24px 0}
+  .svgWrap svg{display:block;min-width:900px;width:100%;height:auto}
+
+  .twoCol{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px;margin:24px 0}
+  .argBox{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;border-top:3px solid var(--c,var(--line2))}
+  .argBox h4{margin:0 0 12px;font-size:15.5px;font-weight:700;display:flex;align-items:center;gap:9px}
+  .argBox ul{margin:0;padding-left:18px}
+  .argBox li{font-size:14px;color:#CFC7E8;margin-bottom:9px}
+  .argBox li:last-child{margin-bottom:0}
+
+  .rules{display:grid;gap:11px;margin:22px 0}
+  .rule{display:flex;gap:15px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:var(--r);padding:18px 21px}
+  .ruleN{flex:none;width:27px;height:27px;border-radius:8px;background:rgba(34,211,238,.15);color:var(--cyan);display:grid;place-items:center;font-size:12.5px;font-weight:800}
+  .rule div strong{display:block;margin-bottom:5px;font-size:15px}
+  .rule div span{font-size:14px;color:#CFC7E8}
+
+  .findings{display:grid;gap:11px;margin:22px 0}
+  .finding{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--f,var(--violet));border-radius:var(--r);padding:17px 20px}
+  .finding h5{margin:0 0 6px;font-size:15px;font-weight:700}
+  .finding p{margin:0;font-size:14px;color:#CFC7E8}
+  .finding p + p{margin-top:8px}
+
+  .decisions{display:grid;gap:11px;margin:22px 0}
+  .dec{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:var(--r);padding:16px 19px}
+  .decN{flex:none;width:25px;height:25px;border-radius:7px;background:rgba(251,191,36,.15);color:var(--amber);display:grid;place-items:center;font-size:12px;font-weight:800}
+  .dec div strong{display:block;margin-bottom:3px;font-size:14.5px}
+  .dec div span{font-size:13.5px;color:var(--muted)}
+  .dec div span.who{display:inline-block;margin-top:6px;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--amber)}
+
+  .closer{
+    margin:40px 0 10px;padding:30px 34px;border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(34,211,238,.08));
+    border:1px solid rgba(168,85,247,.45);
+  }
+  .closer h3{margin:0 0 12px;font-size:22px;font-weight:800;letter-spacing:-.5px}
+  .closer p{margin:0 0 12px;font-size:15.5px;color:#DCD5F2;max-width:800px}
+  .closer p:last-child{margin-bottom:0}
+  .closer b{color:#fff}
+
+  footer{margin-top:70px;border-top:1px solid var(--line);padding:30px 0 46px;color:var(--dim);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* ---------- OFFER CARD ---------- */
+  .offerCard{
+    border:1px solid rgba(168,85,247,.5);border-radius:18px;overflow:hidden;
+    background:linear-gradient(150deg,rgba(124,58,237,.20),rgba(34,211,238,.06) 60%,rgba(10,6,22,0));
+    box-shadow:0 24px 70px rgba(0,0,0,.5);
+  }
+  .offerTop{display:grid;grid-template-columns:1fr 1fr;gap:38px;padding:34px 36px 30px}
+  .offerKicker{
+    display:block;font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;
+    color:var(--violet);font-weight:800;margin-bottom:13px;
+  }
+  .offerName{font-size:30px;font-weight:800;letter-spacing:-.9px;line-height:1.14;margin:0 0 20px}
+  .priceRow{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .price b{display:block;font-size:34px;font-weight:800;letter-spacing:-1.2px;line-height:1;color:var(--cyan);font-variant-numeric:tabular-nums}
+  .price span{display:block;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);font-weight:700;margin-top:6px}
+  .priceOr{font-size:13px;color:var(--dim);font-weight:600;padding-bottom:22px}
+  .replaces{margin:0;font-size:14px;color:#CFC7E8}
+  .replaces b{color:#fff}
+  .getList{margin:0;padding-left:19px}
+  .getList li{font-size:14.5px;color:#CFC7E8;margin-bottom:10px}
+  .getList li:last-child{margin-bottom:0}
+  .getList b{color:#fff}
+  .offerFacts{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .fact{background:rgba(10,6,22,.55);padding:19px 24px}
+  .fact span{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:7px}
+  .fact p{margin:0;font-size:13.5px;color:#CFC7E8}
+  .fact b{color:#fff}
+  .offerWhy{padding:22px 36px;font-size:14.5px;color:#DCD5F2;background:rgba(10,6,22,.4)}
+  .offerWhy b{color:#fff}
+
+  @media (max-width:820px){
+    .heroInner{grid-template-columns:1fr;gap:34px;padding:52px 0 48px}
+    .coverBox{max-width:190px}
+    .offerTop{grid-template-columns:1fr;gap:28px;padding:26px 22px 24px}
+    .offerFacts{grid-template-columns:1fr}
+    .offerWhy{padding:20px 22px}
+    .offerName{font-size:25px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap heroInner">
+    <div>
+      <div class="eyebrow">The Offer <b>&bull;</b> Proposal for review</div>
+      <h1>We sell the month.<br>The change takes a year.</h1>
+      <p class="lede">A member pays us $55 a month and stays two to three months. The cheapest signup we have ever bought cost $124. That gap is why paid growth does not work right now, and it is not an advertising problem. This is the case for selling a twelve month programme instead of a monthly subscription, what it costs, why the discount is not really a discount, and how it gets sold.</p>
+      <div class="heroStats">
+        <div class="hstat"><b style="color:var(--rose)">$110-165</b><span>Collected today</span></div>
+        <div class="hstat"><b style="color:var(--cyan)">$396</b><span>Annual at 40% off</span></div>
+        <div class="hstat"><b style="color:var(--amber)">$124</b><span>Best cost per signup</span></div>
+        <div class="hstat"><b style="color:var(--green)">Day 1</b><span>Payback on annual</span></div>
+      </div>
+    </div>
+    <div class="coverBox">
+      <img src="data:image/jpeg;base64,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" alt="The Reality Revolution by Brian Scott">
+      <div class="coverTag">What We Actually Sell</div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap navInner">
+  <a href="#offer" style="color:#F4F1FF">The Offer</a>
+  <a href="#math">01. The Real Number</a>
+  <a href="#discount">02. The Discount Illusion</a>
+  <a href="#year">03. Why a Year</a>
+  <a href="#monthly">04. Keep or Kill Monthly</a>
+  <a href="#launch">05. How It Gets Sold</a>
+  <a href="#programme">06. What We Owe Them</a>
+  <a href="#open">07. Risks &amp; Open Questions</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- THE OFFER, ON ONE SCREEN -->
+<section id="offer" style="padding-bottom:0">
+  <div class="offerCard">
+    <div class="offerTop">
+      <div>
+        <span class="offerKicker">The offer, on one screen</span>
+        <h3 class="offerName">The Reality Revolution<br>12&#8209;Month Programme</h3>
+        <div class="priceRow">
+          <div class="price"><b>$396</b><span>paid once</span></div>
+          <div class="priceOr">or</div>
+          <div class="price"><b>3 &times; $147</b><span>payment plan</span></div>
+        </div>
+        <p class="replaces">Replaces, <b>for new members only</b>, the $55 per month cancel&nbsp;any&nbsp;time plan.</p>
+      </div>
+      <div>
+        <span class="offerKicker">What a member gets that they do not get today</span>
+        <ul class="getList">
+          <li><b>A start date.</b> The whole group begins on the same day.</li>
+          <li><b>A path in phases</b>, so month four is different from month one.</li>
+          <li><b>Check-ins at day 7, day 30 and day 90</b>, from a real person.</li>
+          <li><b>A cohort</b> going through it at the same time as them.</li>
+          <li><b>Brian on a fixed schedule</b> they can plan their month around.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="offerFacts">
+      <div class="fact"><span>Who sees it</span><p>New traffic from ads and launches. <b>Every existing member keeps their monthly plan, at their current price, permanently.</b></p></div>
+      <div class="fact"><span>When it sells</span><p>Enrollment opens around each event, every two to three months, and then closes. It is not on sale all year.</p></div>
+      <div class="fact"><span>Where it sells</span><p>One page showing the programme only. Monthly is offered afterwards, to someone who says no, not on the page itself.</p></div>
+    </div>
+
+    <div class="offerWhy">
+      <b>Why this price.</b> Today we collect $110 to $165 from a member over two or three months, and it costs $124 to acquire one. At $396 collected on day one, the same member is worth roughly three times more and the ad spend is recovered immediately. <b>The seven sections below are the evidence for those numbers and the argument for the decisions behind them. This card is the offer itself.</b>
+    </div>
+  </div>
+</section>
+
+<!-- 01 -->
+<section id="math">
+  <div class="secHead">
+    <span class="secNum">01. The Real Number</span>
+    <h2>We are paying $124 to collect about $120.</h2>
+    <p class="secSub">Before any argument about offers or positioning, there is an arithmetic problem, and everything else in this document exists because of it. Here it is in five steps.</p>
+  </div>
+
+  <div class="spine">
+    <div class="step"><div class="stepN">1</div><div>
+      <p class="stepQ">What does a member pay us?</p>
+      <p class="stepA"><b>$55 per month</b>, cancel any time. That is the only offer a new person sees today.</p>
+    </div></div>
+    <div class="step"><div class="stepN">2</div><div>
+      <p class="stepQ">How long do they stay?</p>
+      <p class="stepA">Two to three months is what we see in practice. That puts the total we ever collect from one member at somewhere between <b>$110 and $165</b>. Not per month. In total, for their whole life with us.</p>
+    </div></div>
+    <div class="step"><div class="stepN">3</div><div>
+      <p class="stepQ">What does it cost to get one?</p>
+      <p class="stepA">The best result in the history of the ad account is <b>$124.39</b> per signup, from the Newark event campaign. Every other campaign we have run has come in at <b>$541.61</b>. So $124 is not the normal price. It is the record.</p>
+    </div></div>
+    <div class="step"><div class="stepN">4</div><div>
+      <p class="stepQ">So where does that leave us?</p>
+      <p class="stepA">On our best day ever, we spend <b>$124</b> to collect <b>$110 to $165</b>. That is break even if the member stays three months and a loss if they stay two. On a normal day we spend $541 to collect the same $120. There is no version of this that scales.</p>
+    </div></div>
+    <div class="step"><div class="stepN">5</div><div>
+      <p class="stepQ">Is that an advertising problem?</p>
+      <p class="stepA">No. The current campaign is producing <b>3.40% click through at $0.85 per click</b>, the strongest numbers this account has ever recorded, into a warm audience that already knows Brian. The traffic is cheap, it is qualified, and it arrives. What it arrives to is worth $120.</p>
+    </div></div>
+  </div>
+
+  <div class="keyline">
+    The ads are not the constraint. The offer is. We cannot keep paying $124 for someone who will hand us $120 and leave.
+  </div>
+
+  <div class="ecoNote" style="border-left-color:var(--green)">
+    <b>A note on the retention chart, because it seems to say something different.</b> Skool's cohort table measures the percentage of <b>value</b> a group still produces, not the percentage of people still there, and it is dominated by the October 2025 launch cohort, which entered at $27.6K of monthly value against $2.3K to $9.6K for every cohort since. Those are people who followed the channel for years before there was anything to buy. They behave nothing like someone who arrived last week from an ad. Both readings are true at the same time. The value curve holds up because of the launch group, and the member we buy with paid traffic still leaves in month two or three. When the question is how much we can afford to spend acquiring someone, the second number is the one that applies.
+  </div>
+
+  <div class="chartCard">
+    <h4>What one member is worth against what one member costs</h4>
+    <p class="csub">Monthly figure is $55 multiplied by an observed two to three month stay. Annual figure is twelve months at $55 less 40%. Cost line is the best cost per signup on record, from the Newark campaign.</p>
+    <svg viewBox="0 0 520 290" role="img" aria-label="Bar chart comparing member value under monthly and annual pricing against a $124 acquisition cost line">
+      <g font-family="Inter,sans-serif">
+        <!-- gridlines -->
+        <g stroke="#2E2150" stroke-width="1">
+          <line x1="62" y1="240" x2="500" y2="240"/>
+          <line x1="62" y1="191.1" x2="500" y2="191.1"/>
+          <line x1="62" y1="142.2" x2="500" y2="142.2"/>
+          <line x1="62" y1="93.3" x2="500" y2="93.3"/>
+          <line x1="62" y1="44.4" x2="500" y2="44.4"/>
+        </g>
+        <g fill="#7C7399" font-size="11" text-anchor="end">
+          <text x="54" y="244">$0</text>
+          <text x="54" y="195">$100</text>
+          <text x="54" y="146">$200</text>
+          <text x="54" y="97">$300</text>
+          <text x="54" y="48">$400</text>
+        </g>
+
+        <!-- bar 1: monthly range -->
+        <rect x="110" y="186.2" width="110" height="53.8" fill="#0AA3D0" opacity="0.32" rx="2"/>
+        <rect x="110" y="159.3" width="110" height="26.9" fill="#0AA3D0" opacity="0.16" rx="2"/>
+        <line x1="110" y1="159.3" x2="220" y2="159.3" stroke="#0AA3D0" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="165" y="151" fill="#A79FC4" font-size="12.5" font-weight="700" text-anchor="middle">$110 to $165</text>
+
+        <!-- bar 2: annual -->
+        <rect x="300" y="46.4" width="110" height="193.6" fill="#0AA3D0" rx="2"/>
+        <text x="355" y="38" fill="#F4F1FF" font-size="14" font-weight="800" text-anchor="middle">$396</text>
+
+        <!-- CAC line -->
+        <line x1="62" y1="179.4" x2="500" y2="179.4" stroke="#FB7185" stroke-width="2" stroke-dasharray="6 4"/>
+        <!-- legend for the cost line, kept clear of the bars -->
+        <line x1="62" y1="14" x2="88" y2="14" stroke="#FB7185" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="95" y="18" fill="#FB7185" font-size="11.5" font-weight="700" text-anchor="start">Cost to acquire a member, best case $124</text>
+
+        <!-- axis labels -->
+        <g fill="#CFC7E8" font-size="13" font-weight="650" text-anchor="middle">
+          <text x="165" y="261">Monthly today</text>
+          <text x="355" y="261">Annual at 40% off</text>
+        </g>
+        <g fill="#7C7399" font-size="11.5" text-anchor="middle">
+          <text x="165" y="278">collected over 2 to 3 months</text>
+          <text x="355" y="278">collected on day one</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="discount">
+  <div class="secHead">
+    <span class="secNum">02. The Discount Illusion</span>
+    <h2>A 40% discount on money we have never once collected.</h2>
+    <p class="secSub">This is the part that tends to get read backwards, so it is worth being very literal about it.</p>
+  </div>
+
+  <p class="copy">Twelve months at $55 is <b>$660</b>. Take 40% off and the price becomes <b>$396</b>. Written down like that it looks as though we just gave away $264, and that is the instinctive objection to annual pricing everywhere.</p>
+
+  <p class="copy">We never had $264. We had $110 to $165, and only if the member stayed the full two or three months. The 40% is being subtracted from a number that has never appeared in our accounts, from a single member, at any point. It is a discount on a hypothetical.</p>
+
+  <div class="tableWrap">
+    <table>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Monthly today</th>
+        <th>Annual at 40% off</th>
+      </tr>
+      <tr><td class="lab">Price shown on the page</td><td class="num">$55 per month</td><td class="num">$396, one payment</td></tr>
+      <tr><td class="lab">What we actually collect</td><td class="num bad">$110 to $165</td><td class="num ok">$396</td></tr>
+      <tr><td class="lab">When we collect it</td><td>Spread over 2 to 3 months</td><td>Day one</td></tr>
+      <tr><td class="lab">Does collecting it depend on retention</td><td class="bad">Yes, entirely</td><td class="ok">No</td></tr>
+      <tr><td class="lab">Cost to acquire, best case</td><td class="num">$124</td><td class="num">$124</td></tr>
+      <tr class="hi"><td class="lab">Where we stand per member</td><td class="num bad">Between $14 down and $41 up</td><td class="num ok">$272 up</td></tr>
+      <tr class="hi"><td class="lab">Return on acquisition spend</td><td class="num bad">0.9x to 1.3x</td><td class="num ok">3.2x</td></tr>
+    </table>
+  </div>
+
+  <div class="keyline">
+    We are not discounting revenue. We are converting revenue we never collected into revenue we collect on day one.
+  </div>
+
+  <p class="copy" style="margin-top:22px">Three things change the moment that happens, and all three are the difference between running ads and scaling them.</p>
+
+  <div class="kpis">
+    <div class="kpi" style="--k:var(--green)"><b>Day one</b><span>Payback</span><em>Acquisition cost is recovered before delivery even begins, so spend stops being a bet on whether someone stays</em></div>
+    <div class="kpi" style="--k:var(--cyan)"><b>3.2x</b><span>Return per member</span><em>At $396 against a $124 cost, there is room to buy traffic that is more expensive than the cheapest click available</em></div>
+    <div class="kpi" style="--k:var(--violet)"><b>Self funding</b><span>Cash cycle</span><em>Money from this enrollment window pays for the ads in the next one instead of waiting on future months</em></div>
+  </div>
+
+  <p class="copy">That last one matters more than it looks. Right now every dollar of ad spend is a loan against retention we cannot predict. With the year collected up front, the campaign pays for itself before the member has watched a single module, and whatever they do afterwards is upside rather than the thing the whole plan depends on.</p>
+</section>
+
+<!-- 03 -->
+<section id="year">
+  <div class="secHead">
+    <span class="secNum">03. Why a Year</span>
+    <h2>The year is not how they pay. The year is what they are buying.</h2>
+    <p class="secSub">The money argument above is the easy half. This is the half that decides whether any of it actually works.</p>
+  </div>
+
+  <p class="copy">What we sell is change. Not information, not videos, not access to a feed. Somebody arrives because they want their life to work differently, and everything Brian teaches is built around that.</p>
+
+  <p class="copy">Change does not happen in thirty days. Nobody rebuilds how they think, how they react, or what they believe is available to them inside one billing cycle. It takes months, and it takes months of contact with someone who has already done it and with other people moving in the same direction at the same time. <b>That is the actual product, and time is not a side effect of it. Time is the mechanism.</b></p>
+
+  <p class="copy">So we have been attaching a monthly cancel button to a promise that needs a year to keep. Those two things are in direct conflict with each other. We ask people to commit to nothing, and then we are surprised when they are gone before anything has changed.</p>
+
+  <div class="keyline">
+    A monthly member is asked twelve times a year whether they still feel like continuing. Every one of those moments is a chance to quit, and people quit in the weeks where nothing dramatic is happening, which in real change is most weeks.
+  </div>
+
+  <p class="copy" style="margin-top:22px">Someone who pays for the year has made <b>one decision instead of twelve</b>. And they did not make that decision to us. They made it to themselves. The payment is not the commitment, it is the evidence of it. That is why this cannot be solved with a longer free trial or a better onboarding email. Commitments that cost nothing are not commitments, and everyone involved knows it, including the member.</p>
+
+  <p class="copy">There is a second half to it that is just as important. The year is not twelve months of access. It is twelve months of <b>Brian and the community working on the same person, in the same direction, for long enough that the work lands</b>. Sold monthly, the member is gone before the community has had the chance to do the one thing a community exists to do, which is to be there on the day someone would otherwise have given up. The monthly plan is quietly undermining the entire reason the community was built.</p>
+
+  <div class="ecoNote">
+    <b>Which means the discount is not a bribe, it is the price of the commitment.</b> We are not cutting the price to make it easier to say yes. We are cutting it because we are asking for something harder than a monthly subscription asks for, and that is worth paying for. The member trades flexibility for a real shot at the result. We trade margin for their commitment. Both sides of that are better off, and it is the only version where the promise and the payment terms are pointing the same way.
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="monthly">
+  <div class="secHead">
+    <span class="secNum">04. Keep or Kill Monthly</span>
+    <h2>The hard question, argued both ways.</h2>
+    <p class="secSub">This is the part of the decision with real risk in it, so it should not be waved through. Here is the honest case on each side and then what I would actually do.</p>
+  </div>
+
+  <div class="twoCol">
+    <div class="argBox" style="--c:var(--rose)">
+      <h4>The case for removing monthly</h4>
+      <ul>
+        <li>Two prices on a page is not an offer, it is a survey. Faced with $55 now or $396 now, almost everyone picks the small number, and they pick it without thinking about which one is better for them.</li>
+        <li>A programme with a start date and a group cannot have people arriving on random Tuesdays. The cohort is a large part of what makes it work.</li>
+        <li>It makes every ad, page and email simpler. One offer, one decision, one thing to say.</li>
+        <li>Monthly is the mechanism producing the churn we are trying to fix. Keeping it visible means keeping the problem.</li>
+      </ul>
+    </div>
+    <div class="argBox" style="--c:var(--green)">
+      <h4>The case for keeping it</h4>
+      <ul>
+        <li>Every current member is on monthly. Taking it away from them breaks what they bought and would cause exactly the churn spike we are trying to avoid.</li>
+        <li>Some people who genuinely want in cannot put $396 on a card. Losing them completely is worse than having them at $55.</li>
+        <li>If we ever want a low commitment entry point again, rebuilding one from nothing is harder than keeping the one that exists.</li>
+        <li>It is reversible. Hiding an option can be undone in an afternoon. Cancelling everyone's plan cannot.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="keyline">
+    Recommendation: monthly stays. It just stops being a choice at the point of sale.
+  </div>
+
+  <div class="rules">
+    <div class="rule"><div class="ruleN">1</div><div>
+      <strong>Existing members are not touched. At all. Ever.</strong>
+      <span>Everyone currently on monthly keeps monthly, at their current price, permanently. Nothing in this proposal applies to them, and the first line of any internal communication about it should say so.</span>
+    </div></div>
+    <div class="rule"><div class="ruleN">2</div><div>
+      <strong>New traffic sees one offer.</strong>
+      <span>Paid traffic and launch traffic land on a page where the twelve month programme is the only thing available. Not annual highlighted with monthly sitting underneath it. Annual only. The moment both are visible, the decision stops being about the programme and becomes about the smaller number.</span>
+    </div></div>
+    <div class="rule"><div class="ruleN">3</div><div>
+      <strong>Monthly becomes an objection handler, not an entry point.</strong>
+      <span>If someone says the year is too much, monthly is what we offer in the reply email or on the call. It still exists and it still catches people we would otherwise lose. It is just not on the shelf.</span>
+    </div></div>
+  </div>
+
+  <p class="copy"><b>And the affordability problem gets solved without reopening the door.</b> $396 in one payment, or three payments of $147. Both are a twelve month commitment. The only thing that changes is the cash flow, and the commitment stays intact, because a payment plan cannot be cancelled and a subscription can. That is the whole distinction, and it is the reason a payment plan is a legitimate answer to "I cannot afford it" while a monthly plan is not.</p>
+
+  <div class="ecoNote" style="border-left-color:var(--amber)">
+    <b>My honest view, for what it is worth.</b> If it were purely my call I would remove monthly from the sale entirely and never show it to new traffic again. Not because $55 is too cheap, but because it is the option that lets somebody avoid making a decision, and avoiding the decision is exactly what they are already doing when they cancel in month two. The three rules above reach the same place with a safety valve on it, so nothing breaks for the people already inside and nothing is irreversible if we are wrong.
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="launch">
+  <div class="secHead">
+    <span class="secNum">05. How It Gets Sold</span>
+    <h2>The event cadence is the enrollment window.</h2>
+    <p class="secSub">Two things came up in the last conversation that fit this proposal exactly, and both of them change how the ad budget should be spent.</p>
+  </div>
+
+  <p class="copy"><b>The first is that the big jumps in sales have come from building the email list and then selling through it, not from ads closing sales directly.</b> That is correct, and it is not an argument against paid traffic. It is an argument about what paid traffic is for. An ad that tries to close a $396 decision on a cold click will not do it. An ad that puts someone on a list, where they spend two weeks getting to know Brian before anyone asks them for anything, will. The list and the offer are not competing strategies. The list is the front half of the same funnel, and what it sells at the end of it has to be worth the effort of building it. A list nurtured for three weeks and then pointed at a $55 monthly subscription is a lot of work for very little.</p>
+
+  <p class="copy"><b>The second is that the event launches are planned every two to three months.</b> That is the enrollment window, and it explains something in the ad account that we have never been able to account for any other way. The cheapest signups we have ever bought came from the Newark event campaign at <b>$124.39</b>. Similar audience, same landing page, no event behind it, and the cost was <b>$541.61</b>. The variable was not the targeting and it was not the creative. It was that something was happening and there was a reason to act that week.</p>
+
+  <div class="svgWrap">
+    <svg viewBox="0 0 1000 250" role="img" aria-label="The enrollment cycle: event announced, ads run hot to lead capture, list nurtured, event and enrollment window, cohort starts, ads quiet between windows">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#3D2D68"/>
+        </marker>
+      </defs>
+      <g font-family="Inter,sans-serif">
+        <g>
+          <rect x="10" y="60" width="168" height="78" rx="12" fill="#1E1440" stroke="#3D2D68"/>
+          <text x="94" y="88" fill="#A855F7" font-size="10" font-weight="800" letter-spacing="1.4" text-anchor="middle">WEEK 0</text>
+          <text x="94" y="110" fill="#F4F1FF" font-size="14" font-weight="700" text-anchor="middle">Event announced</text>
+          <text x="94" y="127" fill="#A79FC4" font-size="11.5" text-anchor="middle">Date set, reason to act</text>
+        </g>
+        <line x1="182" y1="99" x2="202" y2="99" stroke="#3D2D68" stroke-width="2" marker-end="url(#ar)"/>
+        <g>
+          <rect x="216" y="60" width="168" height="78" rx="12" fill="#1E1440" stroke="#3D2D68"/>
+          <text x="300" y="88" fill="#22D3EE" font-size="10" font-weight="800" letter-spacing="1.4" text-anchor="middle">WEEKS 1 TO 3</text>
+          <text x="300" y="110" fill="#F4F1FF" font-size="14" font-weight="700" text-anchor="middle">Ads run hot</text>
+          <text x="300" y="127" fill="#A79FC4" font-size="11.5" text-anchor="middle">Budget to lead capture</text>
+        </g>
+        <line x1="388" y1="99" x2="408" y2="99" stroke="#3D2D68" stroke-width="2" marker-end="url(#ar)"/>
+        <g>
+          <rect x="422" y="60" width="168" height="78" rx="12" fill="#1E1440" stroke="#3D2D68"/>
+          <text x="506" y="88" fill="#22D3EE" font-size="10" font-weight="800" letter-spacing="1.4" text-anchor="middle">WEEKS 2 TO 4</text>
+          <text x="506" y="110" fill="#F4F1FF" font-size="14" font-weight="700" text-anchor="middle">List is nurtured</text>
+          <text x="506" y="127" fill="#A79FC4" font-size="11.5" text-anchor="middle">Brian, not a sales pitch</text>
+        </g>
+        <line x1="594" y1="99" x2="614" y2="99" stroke="#3D2D68" stroke-width="2" marker-end="url(#ar)"/>
+        <g>
+          <rect x="628" y="60" width="168" height="78" rx="12" fill="#2A1B4D" stroke="#A855F7"/>
+          <text x="712" y="88" fill="#DDD0FF" font-size="10" font-weight="800" letter-spacing="1.4" text-anchor="middle">THE EVENT</text>
+          <text x="712" y="110" fill="#F4F1FF" font-size="14" font-weight="700" text-anchor="middle">Enrollment opens</text>
+          <text x="712" y="127" fill="#C9BCEC" font-size="11.5" text-anchor="middle">Programme sold, then closes</text>
+        </g>
+        <line x1="800" y1="99" x2="820" y2="99" stroke="#3D2D68" stroke-width="2" marker-end="url(#ar)"/>
+        <g>
+          <rect x="834" y="60" width="156" height="78" rx="12" fill="#1E1440" stroke="#3D2D68"/>
+          <text x="912" y="88" fill="#34D399" font-size="10" font-weight="800" letter-spacing="1.4" text-anchor="middle">DAY ONE</text>
+          <text x="912" y="110" fill="#F4F1FF" font-size="14" font-weight="700" text-anchor="middle">Cohort starts</text>
+          <text x="912" y="127" fill="#A79FC4" font-size="11.5" text-anchor="middle">Everyone on the same day</text>
+        </g>
+        <path d="M912 146 L912 196 Q912 206 902 206 L108 206 Q94 206 94 196 L94 150" fill="none" stroke="#3D2D68" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ar)"/>
+        <text x="503" y="228" fill="#7C7399" font-size="12" font-weight="600" text-anchor="middle">Ads quiet between windows. Next event in 2 to 3 months, and the cycle repeats.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="findings">
+    <div class="finding" style="--f:var(--cyan)">
+      <h5>Ads should not run flat all year</h5>
+      <p>They should run hot in the weeks before an enrollment window and go quiet between them. That is cheaper than always on, it performs better, and it matches the only structure in our data that has ever produced conversions at a sane price. Spending the same budget evenly across twelve months is the version we have been running, and it is the version that produced $541 signups.</p>
+    </div>
+    <div class="finding" style="--f:var(--violet)">
+      <h5>The list is the asset, the window is the event, the programme is the sale</h5>
+      <p>Each one needs the other two. A list with nothing worth launching becomes a newsletter. A launch with no list has nobody to sell to. A programme with no launch date is just a product page. Run as one system they compound, and every window makes the next one cheaper because the list carries over.</p>
+    </div>
+    <div class="finding" style="--f:var(--green)">
+      <h5>The first window should be treated as the test, not the rollout</h5>
+      <p>One window, one offer, one cohort, everything measured. How many leads, what they cost, how many converted, at what price. That gives us real numbers for the annual instead of the estimates in this document, and it is a small enough bet that being wrong costs a few weeks rather than a quarter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section id="programme">
+  <div class="secHead">
+    <span class="secNum">06. What We Owe Them</span>
+    <h2>If we ask for a year, it has to be shaped like a year.</h2>
+    <p class="secSub">This is what makes $396 honest rather than clever, and it is worth saying plainly that none of it is invented to justify a price.</p>
+  </div>
+
+  <p class="copy">A twelve month programme that turns out to be the same feed with a longer invoice is a refund request waiting to happen. Five things have to exist, and each one has a specific job.</p>
+
+  <div class="rules">
+    <div class="rule" style="border-left-color:var(--violet)"><div class="ruleN" style="background:rgba(168,85,247,.15);color:var(--violet)">1</div><div>
+      <strong>A start date</strong>
+      <span>Everyone in an enrollment window begins on the same day. This is what turns a purchase into a beginning, and it is what makes the group a group rather than a room of strangers at different stages.</span>
+    </div></div>
+    <div class="rule" style="border-left-color:var(--violet)"><div class="ruleN" style="background:rgba(168,85,247,.15);color:var(--violet)">2</div><div>
+      <strong>A path, not a library</strong>
+      <span>Phases in order, so that month four is a different experience from month one. Right now nobody on our side is responsible for making later months feel different, so for a lot of members they do not. That is a large part of why they leave.</span>
+    </div></div>
+    <div class="rule" style="border-left-color:var(--violet)"><div class="ruleN" style="background:rgba(168,85,247,.15);color:var(--violet)">3</div><div>
+      <strong>Check-ins at day 7, day 30 and day 90</strong>
+      <span>The first month is where the largest single drop happens in every cohort we have. Nothing else in the programme matters as much as somebody noticing when a new member goes quiet in week two, and reaching out while it still counts.</span>
+    </div></div>
+    <div class="rule" style="border-left-color:var(--violet)"><div class="ruleN" style="background:rgba(168,85,247,.15);color:var(--violet)">4</div><div>
+      <strong>The group itself</strong>
+      <span>The people who started on the same day are the reason anyone is still there in month seven, when the initial motivation has worn off and nothing dramatic is happening. This is the part that cannot be replaced with content.</span>
+    </div></div>
+    <div class="rule" style="border-left-color:var(--violet)"><div class="ruleN" style="background:rgba(168,85,247,.15);color:var(--violet)">5</div><div>
+      <strong>Brian at fixed moments</strong>
+      <span>On a schedule people can plan their month around, rather than whenever it happens. Predictable access is worth more than frequent access, because it is the thing a member can point to when they are deciding whether this is real.</span>
+    </div></div>
+  </div>
+
+  <div class="ecoNote" style="border-left-color:var(--green)">
+    <b>This is the same work that fixes churn on the monthly plan.</b> Every item above would improve retention whether we ever sell a single annual subscription or not. The difference is that right now there is no money to pay for building it, because a member is worth $120. The annual offer is what funds the thing that makes the annual offer deliverable, and that is the order it has to happen in.
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="open">
+  <div class="secHead">
+    <span class="secNum">07. Risks &amp; Open Questions</span>
+    <h2>What could go wrong, and what I do not know yet.</h2>
+    <p class="secSub">Nothing here is a reason not to do it. They are things that should be decided before the first window rather than during it.</p>
+  </div>
+
+  <div class="findings">
+    <div class="finding" style="--f:var(--rose)">
+      <h5>Cash up front is not the same as MRR, and the dashboard will look worse</h5>
+      <p>An annual payment does not display as monthly recurring revenue. Skool's MRR chart will go down in the months after we switch, even while the business is meaningfully better, because the money arrived as one payment instead of twelve. We should agree on this in advance so that nobody reads that chart in November and concludes the plan failed. The number to watch instead is cash collected per enrollment window against ad spend in that window.</p>
+    </div>
+    <div class="finding" style="--f:var(--rose)">
+      <h5>Refunds and chargebacks</h5>
+      <p>A year taken in advance and not delivered on becomes a refund request, and in the worst case a public one. This is the real risk in the proposal and it is why section 06 is not decoration. We should also set the refund window deliberately rather than discovering our policy during the first complaint.</p>
+    </div>
+    <div class="finding" style="--f:var(--amber)">
+      <h5>Revenue becomes lumpy</h5>
+      <p>Enrollment windows mean months with a lot of cash and months with very little. That is manageable, but only if it is planned for. It is a different rhythm from a subscription business and it should not come as a surprise to whoever is looking at the bank account in week six.</p>
+    </div>
+    <div class="finding" style="--f:var(--amber)">
+      <h5>The tenure figure is the foundation and we have never measured it properly</h5>
+      <p>Everything in section 01 rests on members staying two to three months. That is what we observe, but we have never measured it cleanly by traffic source, and someone who arrives from an ad almost certainly behaves differently from someone who arrives from a YouTube video. If that number is wrong, the size of the opportunity changes even though the direction does not.</p>
+    </div>
+  </div>
+
+  <div class="decisions">
+    <div class="dec"><div class="decN">1</div><div>
+      <strong>Can Skool hide the monthly option for traffic arriving on a specific link?</strong>
+      <span>If it can, this is straightforward. If it cannot, the sale happens off Skool instead: ad to landing page or VSL to checkout, and the Skool invitation goes out after payment. That is arguably the better structure anyway, but it is more to build, so the answer changes the timeline.</span>
+      <span class="who">Needs Dominic</span>
+    </div></div>
+    <div class="dec"><div class="decN">2</div><div>
+      <strong>What is the refund policy on the annual, and what refund rate would we accept?</strong>
+      <span>Decided before launch, written on the page, and agreed internally so that the first request does not turn into an argument.</span>
+      <span class="who">Owner to define</span>
+    </div></div>
+    <div class="dec"><div class="decN">3</div><div>
+      <strong>Do existing monthly members get offered the programme, and at what price?</strong>
+      <span>They are the warmest audience we have and they have already paid us. There is a version of this where the first enrollment window is offered to them first, which would also tell us whether the offer works before we spend anything on traffic.</span>
+      <span class="who">Owner to define</span>
+    </div></div>
+    <div class="dec"><div class="decN">4</div><div>
+      <strong>What is the date of the next event?</strong>
+      <span>Everything else here is built backwards from it. Ad budget, lead capture, nurture sequence and enrollment window all key off that one date, and none of it can be scheduled until it exists.</span>
+      <span class="who">Needs the events calendar</span>
+    </div></div>
+    <div class="dec"><div class="decN">5</div><div>
+      <strong>Can we measure median tenure by traffic source?</strong>
+      <span>The single number this whole document depends on. Worth getting properly even if it takes a manual export, because it sets what we can afford to pay for a member and therefore how much we can spend.</span>
+      <span class="who">Owner to define</span>
+    </div></div>
+  </div>
+
+  <div class="closer">
+    <h3>Why this is what scaling actually looks like</h3>
+    <p>Nobody scales paid traffic into a fifty five dollar cancel anytime subscription. The money goes out faster than it comes back, every single time, and no amount of better creative fixes arithmetic. That is not a judgement about our ads or our product. It is the same constraint for everyone buying traffic against a low ticket monthly price.</p>
+    <p>The businesses that buy traffic profitably in this market all solve it the same way. They <b>collect enough on day one to pay for the click</b>, and they <b>sell a commitment long enough for the product to actually work</b>. Those two things are not separate tactics. They are the same decision, because the only reason a customer will pay up front is that they are buying something that takes time, and the only reason a business can afford to buy customers is that it collects before it delivers.</p>
+    <p>We already have the hard parts. A real audience, a person they trust, cheap qualified clicks, an 86% active community and an event calendar. <b>What we are missing is an offer that can carry the cost of growth.</b> That is the gap this closes, and it is the last thing standing between the traffic we already know how to buy and a business that can afford to buy more of it.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Reality Revolution &nbsp;&bull;&nbsp; The Annual Offer &nbsp;&bull;&nbsp; Proposal for review</span>
+  <span>Prepared by Pedro</span>
+</footer>
+
+</div>
+</body>
+</html>
